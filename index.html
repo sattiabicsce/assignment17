@@ -25,10 +25,10 @@
             <span class="close">&times;</span>
             <h3 id="add-edit"></h3>
             <form id="car-form" method="post">
-                <input type="hidden" name="_id" value="-1" />
+                <input type="hidden" id="_id" name="_id"> <!-- value="-1" -->
                 <p>
-                    <label for="brand">Brand:</label>
-                    <input type="text" id="brand" name="brand" required />
+                    <label for="make">Make:</label>
+                    <input type="text" id="make" name="make" required />
                 </p>
                 <p>
                     <label for="model">Model:</label>
@@ -46,6 +46,10 @@
                     <label class="inline">Features:</label>
                     <a href="#" id="add-feature">Add Feature</a>
                     <section id="feature-boxes"></section>
+                </p>
+                <p>
+                    <label for="img">Upload Image:</label>
+                    <input type="file" id="img" name="img" />
                 </p>
                 <p>
                     <button type="submit">Submit</button>
