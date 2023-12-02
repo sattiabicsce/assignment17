@@ -124,6 +124,8 @@ app.post("/api/cars", upload.single("img"), (req, res) => {
 });
 
 app.put("/api/cars/:id", upload.single("img"), (req, res) => {
+    
+    
     const carId = parseInt(req.params.id);
     const carIndex = carModels.findIndex(car => car._id === carId);
 

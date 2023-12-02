@@ -117,16 +117,26 @@ const populateEditForm = (car) => {
     });
 };
 
-const addCar = async (e) => {
+const editCar = async (e) => {
     e.preventDefault();
     const form = document.getElementById("car-form");
     const formData = new FormData(form);
     const dataStatus = document.getElementById("data-status");
     let response;
 
+
+}
+
+const addCar = async (e) => {
+    e.preventDefault();
+    const form = document.getElementById("car-form");
+    const formData = new FormData(form);
+    const dataStatus = document.getElementById("data-status");
+    let response;
+    formData.append("features", getFeatures());
+
     if (form._id.value == -1) {
         formData.delete("_id");
-        formData.append("features", getFeatures());
 
         response = await fetch("/api/cars", {
             method: "POST",
@@ -146,10 +156,11 @@ const addCar = async (e) => {
             dataStatus.classList.add("hidden");
         }, 3000);
         console.error("Error posting data");
+        console.error(response.status);
         return;
     }
 
-    response = await response.json();
+    // response = await response.json();
     resetForm();
     document.querySelector(".dialog").classList.add("transparent");
     showCars();
