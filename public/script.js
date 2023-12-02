@@ -55,7 +55,7 @@ const showCars = async () => {
             e.preventDefault();
             const confirmation = window.confirm("Are you sure you want to delete this car?");
             if (confirmation) {
-                await deleteCar(car._id);
+                await deleteCar(car);
             }
         };
     });
